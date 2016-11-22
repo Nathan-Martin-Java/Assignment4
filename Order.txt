@@ -1,0 +1,9 @@
+Laptop,673.60,15
+Keyboard,45.60,40
+Monitor,230.45,30
+Router,310.81,9
+Desktop PC,492.90,32
+Switch,168.46,16
+20' UDP Cable,90.40,18
+Mouse,13.80,38
+Wireless Router,80.59,9
