@@ -32,11 +32,10 @@ public class ShoppingCart
 	
 	public static void main(String[] args) throws IOException
 	{
-		
-		
-		
 		String inFilename;
+		
 		System.out.println("Please enter the name of the input file: ");
+		
 		inFilename = sc.nextLine();
 		File file = new File(inFilename);
 		Scanner inputFile = new Scanner(file);
