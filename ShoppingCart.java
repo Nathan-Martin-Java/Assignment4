@@ -1,3 +1,23 @@
+/****************************************************************************
+*	Name:																	*
+*		Nathan Faucher														*
+*		Martin Czerwinski													*
+*	Date:																	*
+*		November 23th 2016													*
+*	File:																	*
+*		ShoppingCart.java													*
+*																			*
+*	Functionality:															*
+*																			*
+*	Inputs:			Type:		Description:								*
+*																			*
+*	Outputs:		Type:		Description:								*
+*																			*
+*	Constants:		Type:		Value:		Description:					*
+*																			*
+*	Formulas:																*
+*																			*
+****************************************************************************/
 
 import java.io.*;
 import java.util.*;
@@ -5,7 +25,6 @@ import java.util.*;
 public class ShoppingCart
 {
 	static Scanner sc = new Scanner(System.in);
-	
 	
 	public static void main(String[] args) throws IOException
 	{
