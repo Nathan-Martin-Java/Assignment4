@@ -5,7 +5,7 @@ import java.util.*;
 public class ShoppingCart
 {
 	static Scanner sc = new Scanner(System.in);
-	
+	static Discount discount = new Discount();
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -47,7 +47,7 @@ public class ShoppingCart
 		i=0;
 		for (i=0; i<arraySize; i++)
 		{
-			price[i] = bulkDiscount(quantity[i],price[i]);
+			price[i] = discount.bulk(quantity[i],price[i]);
 			System.out.println(price[i]);
 		}
 	}
@@ -74,20 +74,5 @@ public class ShoppingCart
 			
 		}
 		return i;
-	}
-	public static double bulkDiscount(int quantity, double price) 
-	{
-		
-		double priceDisc=0;
-		
-		if (quantity > 20)
-		{
-			priceDisc = price*0.85;
-		}
-		else
-		{
-			priceDisc = price;
-		}
-		return priceDisc;
 	}
 }
