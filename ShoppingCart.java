@@ -25,10 +25,7 @@ import java.util.*;
 public class ShoppingCart
 {
 	static Scanner sc = new Scanner(System.in);
-<<<<<<< HEAD
 	static Discount discount = new Discount();
-=======
->>>>>>> origin/master
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -43,8 +40,8 @@ public class ShoppingCart
 		int arraySize = getArraySize(inFilename);
 		
 		String[] itemName = new String[arraySize];
-		double[] price = new double[arraySize];
-		int[] quantity = new int[arraySize];
+		double[] itemPrice = new double[arraySize];
+		int[] itemQuantity = new int[arraySize];
 		
 		for (int i=0; i<arraySize; i++)
 		{
@@ -52,8 +49,8 @@ public class ShoppingCart
 			String[] nextfield=line.split(",",-1);
 			
 			itemName[i] = nextfield[0];
-			price[i] = Double.parseDouble(nextfield[1]); 
-			quantity[i] = Integer.parseInt(nextfield[2]);
+			itemPrice[i] = Double.parseDouble(nextfield[1]); 
+			itemQuantity[i] = Integer.parseInt(nextfield[2]);
 		}
 		
 		int i = 0;
@@ -61,16 +58,16 @@ public class ShoppingCart
 		while(i < arraySize)
 		{
 			System.out.println(itemName[i]);
-			System.out.println(price[i]);
-			System.out.println(quantity[i]);
+			System.out.println(itemPrice[i]);
+			System.out.println(itemQuantity[i]);
 			System.out.println();
 			i++;
 		}
 		i=0;
 		for (i=0; i<arraySize; i++)
 		{
-			price[i] = discount.bulk(quantity[i],price[i]);
-			System.out.println(price[i]);
+			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
+			System.out.println(itemPrice[i]);
 		}
 	}
 	public static int getArraySize(String inFilename) throws IOException

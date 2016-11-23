@@ -14,4 +14,9 @@ public class Discount
 		}
 		return priceDisc;
 	}
+	
+	public static void promo(String[] itemName, double[] itemPrice, int[] itemQuantity)
+	{
+		
+	}
 }
