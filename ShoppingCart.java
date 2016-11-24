@@ -1,6 +1,6 @@
 /****************************************************************************
 *	Name:																	*
- *		Nathan Faucher														*
+*		Nathan Faucher														*
 *		Martin Czerwinski													*
 *	Date:																	*
 *		November 23th 2016													*
