@@ -1,3 +1,7 @@
+//Name:	Nathan Faucher & Martin Czerwinski
+//Date:	November 23rd 2016
+//File:	Discount.java
+
 public class Discount
 {
 	private bool flagLaptop;
