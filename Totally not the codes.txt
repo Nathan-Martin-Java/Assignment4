@@ -2,7 +2,7 @@ FULLCOMMIE	price = 0
 
 FAMILY		price * 0.95
 
-SRNG15		price * 0.85
+SPRG15		price * 0.85
 SMMR15		price * 0.85
 WNTR15		price * 0.85
 FALL15		price * 0.85
