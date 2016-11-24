@@ -1,6 +1,6 @@
 /****************************************************************************
 *	Name:																	*
-*		Nathan Faucher														*
+ *		Nathan Faucher														*
 *		Martin Czerwinski													*
 *	Date:																	*
 *		November 23th 2016													*
@@ -25,10 +25,7 @@ import java.util.*;
 public class ShoppingCart
 {
 	static Scanner sc = new Scanner(System.in);
-<<<<<<< HEAD
 	static Discount discount = new Discount();
-=======
->>>>>>> origin/master
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -65,13 +62,24 @@ public class ShoppingCart
 			System.out.println(price[i]);
 			System.out.println(quantity[i]);
 			System.out.println();
-			i++;
+		 	i++;
 		}
+		
 		i=0;
 		for (i=0; i<arraySize; i++)
 		{
 			price[i] = discount.bulk(quantity[i],price[i]);
 			System.out.println(price[i]);
+			checkZero(price[i],i);
+		}
+		
+	}
+	public static void checkZero(double price,int i)
+	{
+		if (price == 0)
+		{
+			System.out.printf("\nError: the price in line %d is zero.",i+1);
+			System.exit(0);
 		}
 	}
 	public static int getArraySize(String inFilename) throws IOException
