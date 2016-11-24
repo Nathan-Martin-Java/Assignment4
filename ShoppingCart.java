@@ -28,8 +28,8 @@ import java.util.*;
 
 public class ShoppingCart
 {
-	static Scanner sc = new Scanner(System.in);
 	static Discount discount = new Discount();
+	static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) throws IOException
 	{
@@ -67,7 +67,9 @@ public class ShoppingCart
 			System.out.println();
 			i++;
 		}
+		
 		i=0;
+		
 		for (i=0; i<arraySize; i++)
 		{
 			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
