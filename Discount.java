@@ -1,6 +1,6 @@
 public class Discount
 {
-	private bool flagLaptop;
+	
 	
 	public static double bulk(int quantity, double price) 
 	{
@@ -17,8 +17,4 @@ public class Discount
 		return priceDisc;
 	}
 	
-	public static void promo(String[] itemName, double[] itemPrice, int[] itemQuantity)
-	{
-		
-	}
 }

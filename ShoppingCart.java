@@ -72,13 +72,34 @@ public class ShoppingCart
 		
 		for (i=0; i<arraySize; i++)
 		{
+			checkZer0(itemPrice[i],i);
+			
+			itemName[i] = upperCaser(itemName[i]);
+			System.out.println(itemName[i]);
+			
 			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
 			System.out.println(itemPrice[i]);
-			checkZero(itemPrice[i],i);
+			
+			System.out.println();
 		}
 		
 	}
-	public static void checkZero(double price,int i)
+	
+	public static String upperCaser(String itemName)
+	{
+		String temp1 = itemName.toUpperCase().substring(0,1);
+		itemName = temp1 + itemName.substring(1);
+		
+		int whitespace = itemName.indexOf(" ");
+		if (whitespace != -1)
+		{
+			String temp2 = itemName.toUpperCase().substring(whitespace+1,whitespace+2);
+			itemName = itemName.substring(0,whitespace+1) + temp2 + itemName.substring(whitespace+2);
+		}
+		return itemName;
+	}
+
+	public static void checkZer0(double price,int i)
 	{
 		if (price == 0)
 		{
