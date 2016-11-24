@@ -1,0 +1,28 @@
+FULLCOMMIE	price = 0
+
+FAMILY		price * 0.95
+
+SRNG15		price * 0.85
+SMMR15		price * 0.85
+WNTR15		price * 0.85
+FALL15		price * 0.85
+
+F3qytr		Laptop price * 0.85
+
+Jxn4ns		Keyboard price * 0.75
+		Mouse price * 0.75
+
+udXyj6		Switch price * 0.80
+		Router price * 0.80
+
+Gc47wX		Ethernet cables * 0.50
+
+kc42Qj		Desktop * 0.90
+		Monitor * 0.70
+		Keyboard * 0.70
+		Mouse * 0.70
+
+DQB6HS		Wireless * 0.85
+		Ethernet cable * 0.85
+		
+Transliterate somewhere (Seasonal Codes)
