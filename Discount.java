@@ -1,6 +1,6 @@
 public class Discount
 {
-	private bool test;
+	private bool flagLaptop;
 	
 	public static double bulk(int quantity, double price) 
 	{
