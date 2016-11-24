@@ -28,8 +28,18 @@ import java.util.*;
 
 public class ShoppingCart
 {
+	
+	/******** Import Classes ********/
+	
 	static Discount discount = new Discount();
+	
+	
+	
+	/******** Create a New Scanner ********/
+	
 	static Scanner sc = new Scanner(System.in);
+	
+	
 	
 	public static void main(String[] args) throws IOException
 	{

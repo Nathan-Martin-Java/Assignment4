@@ -10,10 +10,26 @@ public class Discount
 	{
 		double priceDisc=0;
 		
-		if (quantity > 20)
+		if (quantity > 10)
+		{
+			priceDisc = price*0.95;
+		}
+		
+		else if (quantity > 25)
+		{
+			priceDisc = price*0.90;
+		}
+		
+		else if (quantity > 50)
 		{
 			priceDisc = price*0.85;
 		}
+		
+		else if (quantity > 100)
+		{
+			priceDisc = price*0.80;
+		}
+		
 		else
 		{
 			priceDisc = price;
