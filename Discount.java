@@ -1,5 +1,7 @@
 public class Discount
 {
+	private bool test;
+	
 	public static double bulk(int quantity, double price) 
 	{
 		double priceDisc=0;
