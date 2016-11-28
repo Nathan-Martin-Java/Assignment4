@@ -25,6 +25,7 @@
 
 import java.io.*;
 import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class ShoppingCart
 {
@@ -43,7 +44,8 @@ public class ShoppingCart
 	
 	public static void main(String[] args) throws IOException
 	{
-		String inFilename;
+		String inFilename = null;
+		String code = null;
 		
 		System.out.println("Please enter the name of the input file: ");
 		
@@ -91,6 +93,14 @@ public class ShoppingCart
 			System.out.println(itemPrice[i]);
 			
 			System.out.println();
+		}
+		
+		while (true) //temporary infinite loop. This will need to be changed
+		{
+			System.out.println("Please enter a promo code or press enter to exit:");
+			code = sc.nextLine();
+			
+			discount.promo(code);
 		}
 		
 	}
