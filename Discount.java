@@ -249,4 +249,12 @@ public class Discount
 		flagSwitchActivated = false;	//reset first switch activated Boolean to false
 		
 	}
+	
+	public static void total()
+	{
+		if(flagLaptop = true)
+		{
+			
+		}
+	}
 }
