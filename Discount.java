@@ -134,7 +134,7 @@ public class Discount
 			{
 				case "":
 				{
-					System.exit(0);
+					break;
 				}
 				case "FULLCOMMIE":
 				{
@@ -250,11 +250,11 @@ public class Discount
 		
 	}
 	
-	public static void total()
+	/*public static void total()
 	{
 		if(flagLaptop = true)
 		{
 			
 		}
-	}
+	}*/
 }

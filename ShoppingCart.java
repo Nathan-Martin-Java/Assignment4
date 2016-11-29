@@ -33,6 +33,7 @@ public class ShoppingCart
 	/******** Import Classes ********/
 	
 	static Discount discount = new Discount();
+	static ArrayUtil ary = new ArrayUtil();
 	
 	
 	
@@ -45,7 +46,7 @@ public class ShoppingCart
 	public static void main(String[] args) throws IOException
 	{
 		String inFilename = null;
-		String code = null;
+		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
 		System.out.println("Please enter the name of the input file: ");
 		
@@ -95,13 +96,15 @@ public class ShoppingCart
 			System.out.println();
 		}
 		
-		while (true) //temporary infinite loop. This will need to be changed
+		while(!code.equals("")) 
 		{
 			System.out.println("Please enter a promo code or press enter to exit:");
 			code = sc.nextLine();
 			
 			discount.promo(code);
 		}
+		
+		System.out.print("TEST!");
 		
 	}
 	
