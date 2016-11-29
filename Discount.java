@@ -87,10 +87,12 @@ public class Discount
 					flagCheckLaptop = true;
 					break;
 				}
+				
 				else
 				{
 					System.out.println("You Have Already Entered The Laptop Code!");
 					System.out.println();
+					flagSwitchActivated = true;
 					break;
 				}
 				
@@ -111,6 +113,7 @@ public class Discount
 				{
 					System.out.println("You Have Already Entered The Computer Peripherals Code!");
 					System.out.println();
+					flagSwitchActivated = true;
 					break;
 				}
 			}
