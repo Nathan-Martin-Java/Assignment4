@@ -1,5 +1,5 @@
 //Name:	Nathan Faucher & Martin Czerwinski
-//Date:	November 23rd 2016
+//Date:	November 29th 2016
 //File:	ArrayUtil.java
 
 
@@ -12,7 +12,8 @@ public class ArrayUtil
 {
 	public static int getIndex(String[] array, String search) 	//pass quantity and current price
 	{
-		int index = 0;
+		int index = -1;
+		
 		for(int i = 0; i < array.length; i++)
 		{
 			if(search.equals(array[i]))

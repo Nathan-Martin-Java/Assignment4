@@ -104,7 +104,7 @@ public class ShoppingCart
 			discount.promo(code);
 		}
 		
-		System.out.print("TEST!");
+		System.out.print("The index of Monitor is " + ary.getIndex(itemName, "Inator"));
 		
 	}
 	
