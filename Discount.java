@@ -1,5 +1,8 @@
-/*	Discount2.java */
+//Name:	Nathan Faucher & Martin Czerwinski
+//Date:	November 23rd 2016
+//File:	Discount.java
 
+/******** Import Libraries ********/
 
 import java.util.*;
 import java.text.SimpleDateFormat;
