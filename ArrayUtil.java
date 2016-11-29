@@ -12,6 +12,15 @@ public class ArrayUtil
 {
 	public static int getIndex(String[] array, String search) 	//pass quantity and current price
 	{
-		for(int i = 0; array.length)
+		int index = 0;
+		for(int i = 0; i < array.length; i++)
+		{
+			if(search.equals(array[i]))
+			{
+				index = i;
+			}
+		}
+		
+		return index;
 	}
 }
