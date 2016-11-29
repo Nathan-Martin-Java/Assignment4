@@ -14,10 +14,7 @@ public class Discount
 	
 	/******** Declare Flags ********/
 	
-	private Boolean flagLaptop;
-	private Boolean flagNetwork;
-	private Boolean flagSeason;
-	private Boolean flagFamily;
+	private static Boolean flagFamily = false;
 	
 	
 	/******** Create Month Format ********/
@@ -211,9 +208,21 @@ public class Discount
 				
 				case "FAMILY":
 				{
-					System.out.println("Friends and Family Discount");
-					System.out.println();
-					break;
+					if (flagFamily == false)
+					{
+						System.out.println("You Entered The Friends and Family Discount");
+						System.out.println();
+						flagFamily = true;
+						break;
+					}
+					
+					else
+					{
+						System.out.println("You Have Already Entered That Code!");
+						System.out.println();
+						break;
+					}
+					
 				}
 				
 				default:
