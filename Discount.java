@@ -1,10 +1,5 @@
-//Name:	Nathan Faucher & Martin Czerwinski
-//Date:	November 23rd 2016
-//File:	Discount.java
+/*	Discount2.java */
 
-
-
-/******** Import Libraries ********/
 
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -17,6 +12,10 @@ public class Discount
 	
 	private static Boolean flagCheckLaptop = false;
 	private static Boolean flagCheckComp = false;
+	private static Boolean flagCheckNetwork = false;
+	private static Boolean flagCheckCable = false;
+	private static Boolean flagCheckOffice = false;
+	private static Boolean flagCheckHomeNet = false;
 	private static Boolean flagCheckSeason = false;
 	private static Boolean flagCheckFamily = false;
 	
@@ -72,8 +71,6 @@ public class Discount
 		Date date = new Date();								//create a new instance of date
 		month = Integer.parseInt(monthFormat.format(date));	//parse the new instance of date so it only has the month in number format
 		
-		
-		
 		switch(code)	//switch for case sensitive codes
 		{
 			case "F3qytr":
@@ -95,7 +92,6 @@ public class Discount
 					flagSwitchActivated = true;
 					break;
 				}
-				
 			}
 			
 			case "Jxn4ns":
@@ -120,37 +116,87 @@ public class Discount
 			
 			case "udXyj6":
 			{
-				System.out.println("Networking Code!");
-				System.out.println("20% off switches & routers");
-				System.out.println();
-				flagSwitchActivated = true;
-				break;
+				if (flagCheckNetwork == false)
+				{
+					System.out.println("Networking Code!");
+					System.out.println("20% off switches & routers");
+					System.out.println();
+					flagSwitchActivated = true;
+					flagCheckNetwork = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Networking Code!");
+					System.out.println();
+					flagSwitchActivated = true;
+					break;
+				}
 			}
 			
 			case "Gc47wX":
 			{
-				System.out.println("Ethernet Cable Code!");
-				System.out.println("Half Off Ethernet Cables!");
-				System.out.println();
-				flagSwitchActivated = true;
-				break;
+				if (flagCheckCable == false)
+				{
+					System.out.println("Ethernet Cable Code!");
+					System.out.println("Half Off Ethernet Cables!");
+					System.out.println();
+					flagSwitchActivated = true;
+					flagCheckCable = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Ethernet Cable Code!");
+					System.out.println();
+					flagSwitchActivated = true;
+					break;
+				}
 			}
 			
 			case "kc42Qj":
 			{
-				System.out.println("Home Office Starter Pack!");
-				System.out.println("10% off Desktops, 30% off mice, keyboards & monitors!");
-				System.out.println();
-				flagSwitchActivated = true;
-				break;
+				if (flagCheckOffice == false)
+				{
+					System.out.println("Home Office Starter Pack!");
+					System.out.println("10% off Desktops, 30% off mice, keyboards & monitors!");
+					System.out.println();
+					flagCheckOffice = true;
+					flagSwitchActivated = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Home Office Starter Pack Code!");
+					System.out.println();
+					flagSwitchActivated = true;
+					break;
+				}
 			}
 			
 			case "DQB6HS":
 			{
-				System.out.println("Home Networking Starter Pack!");
-				System.out.println("15% off Wireless Access Points & Ethernet Cables!");
+				if (flagCheckHomeNet == false)
+				{
+					System.out.println("Home Networking Starter Pack!");
+					System.out.println("15% off Wireless Access Points & Ethernet Cables!");
+					System.out.println();
+					flagCheckHomeNet = true;
+					flagSwitchActivated = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Home Networking Starter Pack Code!");
+					System.out.println();
+					flagSwitchActivated = true;
+					break;
+				}
+			}
+			default:
+			{
+				System.out.println("Invalid Option");
 				System.out.println();
-				flagSwitchActivated = true;
 				break;
 			}
 		}
@@ -303,22 +349,7 @@ public class Discount
 					break;
 				}
 			}
-		}
-		
-		flagSwitchActivated = false;	//reset first switch activated Boolean to false
-		
+		}		
+		flagSwitchActivated = false;
 	}
-
-
-	/*
-	public static void total()
-
-	{
-		if(flagLaptop = true)
-		{
-			
-		}
-	}
-	*/
 }
-
