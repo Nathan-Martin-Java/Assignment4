@@ -14,8 +14,11 @@ public class Discount
 	
 	/******** Declare Flags ********/
 	
-	private static Boolean flagSeason = false;
-	private static Boolean flagFamily = false;
+	
+	private static Boolean flagCheckLaptop = false;
+	private static Boolean flagCheckComp = false;
+	private static Boolean flagCheckSeason = false;
+	private static Boolean flagCheckFamily = false;
 	
 	
 	/******** Create Month Format ********/
@@ -75,20 +78,41 @@ public class Discount
 		{
 			case "F3qytr":
 			{
-				System.out.println("Laptop Code!");
-				System.out.println("15% off laptops");
-				System.out.println();
-				flagSwitchActivated = true;
-				break;
+				if (flagCheckLaptop == false)
+				{
+					System.out.println("Laptop Code!");
+					System.out.println("15% off laptops");
+					System.out.println();
+					flagSwitchActivated = true;
+					flagCheckLaptop = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Laptop Code!");
+					System.out.println();
+					break;
+				}
+				
 			}
 			
 			case "Jxn4ns":
 			{
-				System.out.println("Computer Peripherals Code!");
-				System.out.println("25% off mice & keyboards");
-				System.out.println();
-				flagSwitchActivated = true;
-				break;
+				if (flagCheckComp == false)
+				{
+					System.out.println("Computer Peripherals Code!");
+					System.out.println("25% off mice & keyboards");
+					System.out.println();
+					flagSwitchActivated = true;
+					flagCheckComp = true;
+					break;
+				}
+				else
+				{
+					System.out.println("You Have Already Entered The Computer Peripherals Code!");
+					System.out.println();
+					break;
+				}
 			}
 			
 			case "udXyj6":
@@ -147,14 +171,13 @@ public class Discount
 				{
 					if(month==3 || month==4 || month==5)
 					{
-						if(flagSeason == false)
+						if(flagCheckSeason == false)
 						{
 							System.out.println("Spring 15% off");
 							System.out.println();
-							flagSeason = true;
+							flagCheckSeason = true;
 							break;
 						}
-					
 						else
 						{
 							System.out.println("You have already entered the season discount.");
@@ -174,10 +197,20 @@ public class Discount
 				{
 					if(month==6 || month==7 || month==8)
 					{
-						System.out.println("Summer 15% off");
-						System.out.println();
+						if(flagCheckSeason == false)
+						{
+							System.out.println("Summer 15% off");
+							System.out.println();
+							flagCheckSeason =true;
+							break;
+						}
+						else
+						{
+							System.out.println("You have already entered the season discount.");
+							System.out.println();
+							break;
+						}
 					}
-					
 					else
 					{
 						System.out.println("Invalid Option");
@@ -190,8 +223,19 @@ public class Discount
 				{
 					if(month==9 || month==10 || month==11)
 					{
-						System.out.println("Fall 15% off");
-						System.out.println();
+						if(flagCheckSeason == false)
+						{
+							System.out.println("Fall 15% off");
+							System.out.println();
+							flagCheckSeason = true;
+							break;
+						}
+						else
+						{
+							System.out.println("You have already entered the season discount.");
+							System.out.println();
+							break;
+						}
 					}
 					
 					else
@@ -206,8 +250,20 @@ public class Discount
 				{
 					if(month==12 || month==1 || month==2)
 					{
-						System.out.println("Winter 15% off");
-						System.out.println();
+						if(flagCheckSeason == false)
+						{
+							System.out.println("Winter 15% off");
+							System.out.println();
+							flagCheckSeason=true;
+							break;
+						}
+						else
+						{
+							System.out.println("You have already entered the season discount.");
+							System.out.println();
+							break;
+						}
+						
 					}
 					
 					else
@@ -220,17 +276,17 @@ public class Discount
 				
 				case "FAMILY":
 				{
-					if (flagFamily == false)
+					if (flagCheckFamily == false)
 					{
 						System.out.println("You Entered The Friends and Family Discount");
 						System.out.println();
-						flagFamily = true;
+						flagCheckFamily = true;
 						break;
 					}
 					
 					else
 					{
-						System.out.println("You Have Already Entered That Code!");
+						System.out.println("You Have Already Entered The Friends and Family Code!");
 						System.out.println();
 						break;
 					}
@@ -249,12 +305,12 @@ public class Discount
 		flagSwitchActivated = false;	//reset first switch activated Boolean to false
 		
 	}
-	
-	public static void total()
+	/*	public static void total()
 	{
 		if(flagLaptop = true)
 		{
 			
 		}
-	}
+	}*/
+
 }
