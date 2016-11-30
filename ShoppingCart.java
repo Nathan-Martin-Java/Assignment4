@@ -103,6 +103,7 @@ public class ShoppingCart
 			
 			discount.promo(code);
 		}
+		ary.checkDuplicate(itemName);
 		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
 		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
 		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);

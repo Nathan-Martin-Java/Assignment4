@@ -37,4 +37,18 @@ public class ArrayUtil
 		}
 		return index;	//return the index of the found string or return -1 if the string wasn't found
 	}
+	
+	public static void checkDuplicate(String[] array)
+	{
+		for(int i = 0; i < array.length; i++)	//for loop that runs while i is less than the number of elements in the array
+		{
+			for(int f = 0; f < array.length; f++)
+			{
+				if(array[i].equals(array[f]) && i != f)
+				{
+					System.out.println("Duplicate found at different location. !!!ERROR!!!");
+				}
+			}
+		}
+	}
 }
