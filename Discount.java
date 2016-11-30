@@ -366,8 +366,7 @@ public class Discount
 	public static double[] total(String[] names, double[] price, int[] quantity)
 	{	
 		int index = 0;
-		int tempQuantity = 0;
-		double tempPrice = 0;
+
 		double[] totalPrice = new double[price.length];
 		
 		for(int i = 0; i < totalPrice.length; i++)
@@ -378,32 +377,63 @@ public class Discount
 		if(flagCheckLaptop == true)
 		{
 			index = ary.getIndex(names, "Laptop");
-			tempPrice = price[index];
-			tempQuantity = quantity[index];
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.85) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Laptops in your order.");
+			}
 			
-			totalPrice[index] = (price[index] * 0.85) * quantity[index];
 		}
 		
-		/*if(flagCheckComp == true)
+		if(flagCheckComp == true)
 		{
-			ary.getIndex(names, name)
+			if (index != -1)
+			{
+				index = ary.getIndex(names, "Mouse");
+				totalPrice[index] = (price[index] * 0.75) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Mice in your order.");
+			}
+			
+			index = ary.getIndex(names, "Keyboard");
+			totalPrice[index] = (price[index] * 0.75) * quantity[index];
 		}
 		
 		if(flagCheckNetwork == true)
 		{
-			ary.getIndex(names, name)
+			index = ary.getIndex(names, "Switch");
+			totalPrice[index] = (price[index] * 0.80) * quantity[index];
+			
+			index = ary.getIndex(names, "Router");
+			totalPrice[index] = (price[index] * 0.80) * quantity[index];
 		}
 		
 		if(flagCheckCable == true)
 		{
-			ary.getIndex(names, name)
+			index = ary.getIndex(names, "Ethernet Cable");
+			totalPrice[index] = (price[index] * 0.50) * quantity[index];
 		}
 
 		if(flagCheckOffice == true)
 		{
-			ary.getIndex(names, name)
+			index = ary.getIndex(names, "Desktop Computer");
+			totalPrice[index] = (price[index] * 0.90) * quantity[index];
+			
+			index = ary.getIndex(names, "Monitor");
+			totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			
+			index = ary.getIndex(names, "Mouse");
+			totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			
+			index = ary.getIndex(names, "Keyboard");
+			totalPrice[index] = (price[index] * 0.70) * quantity[index];
 		}
-		
+		/*
 		if(flagCheckHomeNet == true)
 		{
 			ary.getIndex(names, name)
