@@ -18,7 +18,6 @@ public class Discount
 	
 	/******** Declare Flags ********/
 	
-	
 	private static Boolean flagCheckLaptop = false;
 	private static Boolean flagCheckComp = false;
 	private static Boolean flagCheckNetwork = false;
@@ -27,6 +26,7 @@ public class Discount
 	private static Boolean flagCheckHomeNet = false;
 	private static Boolean flagCheckSeason = false;
 	private static Boolean flagCheckFamily = false;
+	
 	
 	
 	/******** Create Month Format ********/
@@ -82,9 +82,9 @@ public class Discount
 		
 		switch(code)	//switch for case sensitive codes
 		{
-			case "":
+			case "":	//case for if enter was pressed without any characters
 			{
-				flagSwitchActivated = true;
+				flagSwitchActivated = true;	//activates a flag so that the second switch is not activated
 				break;
 			}
 				
@@ -95,7 +95,7 @@ public class Discount
 					System.out.println("Laptop Code!");
 					System.out.println("15% off laptops");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					flagCheckLaptop = true;
 					break;
 				}
@@ -104,7 +104,7 @@ public class Discount
 				{
 					System.out.println("You Have Already Entered The Laptop Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
@@ -116,7 +116,7 @@ public class Discount
 					System.out.println("Computer Peripherals Code!");
 					System.out.println("25% off mice & keyboards");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					flagCheckComp = true;
 					break;
 				}
@@ -124,7 +124,7 @@ public class Discount
 				{
 					System.out.println("You Have Already Entered The Computer Peripherals Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
@@ -136,7 +136,7 @@ public class Discount
 					System.out.println("Networking Code!");
 					System.out.println("20% off switches & routers");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					flagCheckNetwork = true;
 					break;
 				}
@@ -144,7 +144,7 @@ public class Discount
 				{
 					System.out.println("You Have Already Entered The Networking Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
@@ -156,7 +156,7 @@ public class Discount
 					System.out.println("Ethernet Cable Code!");
 					System.out.println("Half Off Ethernet Cables!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					flagCheckCable = true;
 					break;
 				}
@@ -164,7 +164,7 @@ public class Discount
 				{
 					System.out.println("You Have Already Entered The Ethernet Cable Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
@@ -177,14 +177,14 @@ public class Discount
 					System.out.println("10% off Desktops, 30% off mice, keyboards & monitors!");
 					System.out.println();
 					flagCheckOffice = true;
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 				else
 				{
 					System.out.println("You Have Already Entered The Home Office Starter Pack Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
@@ -197,14 +197,14 @@ public class Discount
 					System.out.println("15% off Wireless Access Points & Ethernet Cables!");
 					System.out.println();
 					flagCheckHomeNet = true;
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 				else
 				{
 					System.out.println("You Have Already Entered The Home Networking Starter Pack Code!");
 					System.out.println();
-					flagSwitchActivated = true;
+					flagSwitchActivated = true;				//activates a flag so that the second switch is not activated
 					break;
 				}
 			}
