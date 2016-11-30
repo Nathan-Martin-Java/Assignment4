@@ -1,0 +1,10 @@
+laptop,673.60,15
+keyboard,45.60,40
+monitor,230.45,30
+router,310.81,9
+desktop computer,492.90,32
+switch,168.46,16
+laptop,673.60,15
+ethernet cable,90.40,18
+mouse,13.80,38
+wireless router,80.59,9
