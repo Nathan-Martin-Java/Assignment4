@@ -1,0 +1,20 @@
+
+ITEM NAME	ITEM QUANTITY	ITEM PRICE
+
+Laptop    	15	639.92
+
+Keyboard  	40	41.04
+
+Monitor   	30	207.41
+
+Router    	9	310.81
+
+Desktop Computer	32	443.61
+
+Switch    	16	160.04
+
+Ethernet Cable	18	85.88
+
+Mouse     	38	12.42
+
+Wireless Router	9	80.59

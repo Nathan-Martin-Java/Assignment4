@@ -55,20 +55,21 @@ public class ShoppingCart
 		
 		int arraySize = 0;			//integer to hold the size of the arrays
 		
-		inFilename = getInFile();				//prompt and get the infile
+		inFilename = getInFile();				//prompt and get the infile then open it
 		arraySize = getArraySize(inFilename);	//get the number of lines from the file
 		
-		String outFilename = getOutFile();
+		String outFilename = getOutFile();		//prompt and get the outfile then open it
 		
 		
 		
+		/******** Create Arrays ********/
 		
-		
-		
-		String[] itemName = new String[arraySize];	//create a new array that is the size of arraySize for names
-		double[] itemPrice = new double[arraySize];	//create a new array that is the size of arraySize for price
-		double[] itemTotal = new double[arraySize];
-		int[] itemQuantity = new int[arraySize];	//create a new array that is the size of arraySize for quantity
+		String[] itemName = new String[arraySize];		//create a new array that is the size of arraySize for names
+		double[] itemPrice = new double[arraySize];		//create a new array that is the size of arraySize for price
+		double[] itemTotal = new double[arraySize];		//create a new array that is the size of arraySize for total
+		double[] itemBulk = new double[arraySize];		//create a new array that is the size of arraySize for bulk discount
+		double[] itemDiscount = new double[arraySize];	//create a new array that is the size of arraySize for discount
+		int[] itemQuantity = new int[arraySize];		//create a new array that is the size of arraySize for quantity
 		
 		for (int i=0; i<arraySize; i++)
 		{
@@ -78,6 +79,10 @@ public class ShoppingCart
 			itemName[i] = nextfield[0];
 			itemPrice[i] = Double.parseDouble(nextfield[1]); 
 			itemQuantity[i] = Integer.parseInt(nextfield[2]);
+			itemTotal[i] = getTotal(itemPrice[i], itemQuantity[i]);
+			
+			System.out.println("Total is " + itemTotal[i]);
+		
 		}
 		
 		int i = 0;
@@ -106,6 +111,7 @@ public class ShoppingCart
 			System.out.println(itemPrice[i]);
 			
 			System.out.println();
+			itemBulk[i] = getTotal(itemPrice[i], itemQuantity[i]);
 		}
 		
 		while(!code.equals("")) 
@@ -148,6 +154,13 @@ public class ShoppingCart
 		outfile = new UtilityClass(Out);  	
 		outfile.openFile();
 		return Out;
+	}
+	
+	public static double getTotal(double itemPrice, int itemQuantity)
+	{
+		double itemTotal = itemPrice*itemQuantity;
+		
+		return itemTotal;
 	}
 	
 	public static String upperCaser(String itemName)
