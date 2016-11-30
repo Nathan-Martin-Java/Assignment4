@@ -361,8 +361,6 @@ public class Discount
 		}		
 		flagSwitchActivated = false;
 	}
-<<<<<<< HEAD
-
 
 	/*
 	public static void total(String[] names)
@@ -373,6 +371,4 @@ public class Discount
 		}
 	}
 	*/
-=======
->>>>>>> origin/master
 }
