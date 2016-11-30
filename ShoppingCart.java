@@ -45,16 +45,17 @@ public class ShoppingCart
 	
 	public static void main(String[] args) throws IOException
 	{
-		String inFilename = null;
+		
+		/******** Create Variables ********/
+		
+		String inFilename = null;	//create null string to hold infile
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
-		System.out.println("Please enter the name of the input file: ");
+		int arraySize = 0;
 		
-		inFilename = sc.nextLine();
-		File file = new File(inFilename);
-		Scanner inputFile = new Scanner(file);
 		
-		int arraySize = getArraySize(inFilename);
+		
+		arraySize = getArraySize(inFilename);
 		
 		String[] itemName = new String[arraySize];
 		double[] itemPrice = new double[arraySize];
@@ -103,10 +104,28 @@ public class ShoppingCart
 			
 			discount.promo(code);
 		}
-		ary.checkDuplicate(itemName);
+		
 		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
 		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
 		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);
+	}
+	
+	public static String getInFile()
+	{
+		System.out.println("Please enter the name of the input file: ");
+		
+		inFilename = sc.nextLine();
+		File file = new File(inFilename);
+		Scanner inputFile = new Scanner(file);
+	}
+	
+	public static String getOutFile()
+	{
+		System.out.println("Please enter the name of the output file: ");
+		
+		inFilename = sc.nextLine();
+		File file = new File(inFilename);
+		Scanner inputFile = new Scanner(file);
 	}
 	
 	public static String upperCaser(String itemName)
