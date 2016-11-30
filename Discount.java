@@ -82,6 +82,12 @@ public class Discount
 		
 		switch(code)	//switch for case sensitive codes
 		{
+			case "":
+			{
+				flagSwitchActivated = true;
+				break;
+			}
+				
 			case "F3qytr":
 			{
 				if (flagCheckLaptop == false)
@@ -214,10 +220,6 @@ public class Discount
 		{
 			switch(code.toUpperCase())	//switch for case insensitive codes
 			{
-				case "":
-				{
-					break;
-				}
 				case "FULLCOMMIE":
 				{
 					System.out.println("Glory to the motherland!");
@@ -390,64 +392,137 @@ public class Discount
 		
 		if(flagCheckComp == true)
 		{
+			index = ary.getIndex(names, "Mouse");
 			if (index != -1)
 			{
-				index = ary.getIndex(names, "Mouse");
 				totalPrice[index] = (price[index] * 0.75) * quantity[index];
 			}
 			else
 			{
 				System.out.println("There are no Mice in your order.");
 			}
-			
 			index = ary.getIndex(names, "Keyboard");
-			totalPrice[index] = (price[index] * 0.75) * quantity[index];
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.75) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Keyboards in your order.");
+			}
 		}
 		
 		if(flagCheckNetwork == true)
 		{
 			index = ary.getIndex(names, "Switch");
-			totalPrice[index] = (price[index] * 0.80) * quantity[index];
-			
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.80) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Switches in your order.");
+			}
 			index = ary.getIndex(names, "Router");
-			totalPrice[index] = (price[index] * 0.80) * quantity[index];
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.80) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Routers in your order.");
+			}
 		}
 		
 		if(flagCheckCable == true)
 		{
 			index = ary.getIndex(names, "Ethernet Cable");
-			totalPrice[index] = (price[index] * 0.50) * quantity[index];
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.50) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Ethernet Cables in your order.");
+			}
 		}
 
 		if(flagCheckOffice == true)
 		{
 			index = ary.getIndex(names, "Desktop Computer");
-			totalPrice[index] = (price[index] * 0.90) * quantity[index];
-			
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.90) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Desktop Computers in your order.");
+			}
 			index = ary.getIndex(names, "Monitor");
-			totalPrice[index] = (price[index] * 0.70) * quantity[index];
-			
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Monitors in your order.");
+			}
 			index = ary.getIndex(names, "Mouse");
-			totalPrice[index] = (price[index] * 0.70) * quantity[index];
-			
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Mice in your order.");
+			}
 			index = ary.getIndex(names, "Keyboard");
-			totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Keyboards in your order.");
+			}
 		}
-		/*
 		if(flagCheckHomeNet == true)
 		{
-			ary.getIndex(names, name)
+			index = ary.getIndex(names, "Ethernet Cable");
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Ethernet Cables in your order.");
+			}
+			index = ary.getIndex(names, "Wireless Router");
+			if (index != -1)
+			{
+				totalPrice[index] = (price[index] * 0.70) * quantity[index];
+			}
+			else
+			{
+				System.out.println("There are no Wireless Routers in your order.");
+			}
 		}
 		
 		if(flagCheckSeason == true)
 		{
-			ary.getIndex(names, name)
+			for(int i = 0; i < totalPrice.length; i++)
+			{
+				totalPrice[i] = (price[i]*0.85) * quantity[i]; 
+			}
 		}
 		
 		if(flagCheckFamily == true)
 		{
-			ary.getIndex(names, name)
-		}*/
+			for(int i = 0; i < totalPrice.length; i++)
+			{
+				totalPrice[i] = (price[i]*0.95) * quantity[i]; 
+			}
+		}
 		
 		return totalPrice;
 	}
