@@ -47,19 +47,19 @@ public class ShoppingCart
 	public static void main(String[] args) throws IOException
 	{
 		
-		/******** Create Variables ********/
+		/******** Declare Variables ********/
 		
-		String inFilename = null;
+		String inFilename = null;	//creates a string for to hold the infile name
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
-		int arraySize = 0;
+		int arraySize = 0;			//integer to hold the size of the arrays
 		
-		inFilename = getInFile();
-		arraySize = getArraySize(inFilename);
+		inFilename = getInFile();				//prompt and get the infile
+		arraySize = getArraySize(inFilename);	//get the number of lines from the file
 		
-		String[] itemName = new String[arraySize];
-		double[] itemPrice = new double[arraySize];
-		int[] itemQuantity = new int[arraySize];
+		String[] itemName = new String[arraySize];	//create a new array that is the size of arraySize for names
+		double[] itemPrice = new double[arraySize];	//create a new array that is the size of arraySize for price
+		int[] itemQuantity = new int[arraySize];	//create a new array that is the size of arraySize for quantity
 		
 		for (int i=0; i<arraySize; i++)
 		{
