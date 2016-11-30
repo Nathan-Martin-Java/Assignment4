@@ -362,13 +362,47 @@ public class Discount
 		flagSwitchActivated = false;
 	}
 
-	/*
+	
 	public static void total(String[] names)
 	{
-		if(flagLaptop = true)
+		if(flagCheckLaptop == true)
+		{
+			System.out.println("Laptop's index is " + ary.getIndex(names, "Laptop"));
+		}
+		
+		/*if(flagCheckComp == true)
 		{
 			ary.getIndex(names, name)
 		}
+		
+		if(flagCheckNetwork == true)
+		{
+			ary.getIndex(names, name)
+		}
+		
+		if(flagCheckCable == true)
+		{
+			ary.getIndex(names, name)
+		}
+
+		if(flagCheckOffice == true)
+		{
+			ary.getIndex(names, name)
+		}
+		
+		if(flagCheckHomeNet == true)
+		{
+			ary.getIndex(names, name)
+		}
+		
+		if(flagCheckSeason == true)
+		{
+			ary.getIndex(names, name)
+		}
+		
+		if(flagCheckFamily == true)
+		{
+			ary.getIndex(names, name)
+		}*/
 	}
-	*/
 }
