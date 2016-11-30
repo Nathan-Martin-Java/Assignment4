@@ -103,9 +103,9 @@ public class ShoppingCart
 			
 			discount.promo(code);
 		}
-		discount.total(itemName);
-		System.out.print("The index of Monitor is " + ary.getIndex(itemName, "Inator"));
-		
+		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
+		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
+		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);
 	}
 	
 	public static String upperCaser(String itemName)

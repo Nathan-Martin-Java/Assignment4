@@ -363,11 +363,25 @@ public class Discount
 	}
 
 	
-	public static void total(String[] names)
-	{
+	public static double[] total(String[] names, double[] price, int[] quantity)
+	{	
+		int index = 0;
+		int tempQuantity = 0;
+		double tempPrice = 0;
+		double[] totalPrice = new double[price.length];
+		
+		for(int i = 0; i < totalPrice.length; i++)
+		{
+			totalPrice[i] = price[i] * quantity[i]; 
+		}
+		
 		if(flagCheckLaptop == true)
 		{
-			System.out.println("Laptop's index is " + ary.getIndex(names, "Laptop"));
+			index = ary.getIndex(names, "Laptop");
+			tempPrice = price[index];
+			tempQuantity = quantity[index];
+			
+			totalPrice[index] = (price[index] * 0.85) * quantity[index];
 		}
 		
 		/*if(flagCheckComp == true)
@@ -404,5 +418,7 @@ public class Discount
 		{
 			ary.getIndex(names, name)
 		}*/
+		
+		return totalPrice;
 	}
 }
