@@ -56,6 +56,13 @@ public class ShoppingCart
 		
 		int arraySize = getArraySize(inFilename);
 		
+		/******** Create a New Instance of the Utility Class ********/
+		
+		System.out.print("Please enter the path and file to which you wish to save the output: ");
+		String Out = sc.nextLine();
+		UtilityClass outfile = new UtilityClass(Out);  	
+		outfile.openFile();
+		
 		String[] itemName = new String[arraySize];
 		double[] itemPrice = new double[arraySize];
 		int[] itemQuantity = new int[arraySize];
@@ -103,10 +110,15 @@ public class ShoppingCart
 			
 			discount.promo(code);
 		}
+		
 		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
 		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
 		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);
+		
+		outfile.closeFile();
 	}
+	
+	/******** Method to Transliterate to Uppercase ********/
 	
 	public static String upperCaser(String itemName)
 	{
@@ -122,6 +134,8 @@ public class ShoppingCart
 		return itemName;
 	}
 
+	/******** Check the price field for the value zero ********/
+	
 	public static void checkZer0(double price,int i)
 	{
 		if (price == 0)
@@ -130,6 +144,9 @@ public class ShoppingCart
 			System.exit(0);
 		}
 	}
+	
+	/******** Determines the number of lines in the input file ********/
+	
 	public static int getArraySize(String inFilename) throws IOException
 	{
 		int i = 0;
@@ -154,4 +171,13 @@ public class ShoppingCart
 		}
 		return i;
 	}
+	
+	/******** Method to Print the Receipt Table ********/
+	
+	public static void printBmi(String[] itemName, int[] itemQuantity, double[] itemPrice,int i, UtilityClass outfile)
+    {
+        System.out.printf("\n\t%-10s\t%d\t%.2f\t\t%.2f\t\t%.2f\n", itemName[i], itemQuantity[i], itemPrice[i]);
+        outfile.writeLineToFile("\n\t%d\t%.2f\t\t%.2f\t\t%.2f\n",age[i], height[i], weight[i], bmi[i]);
+    }
+	
 }
