@@ -37,36 +37,38 @@ public class ShoppingCart
 	
 	
 	
-	/******** Create a New Scanner ********/
+	/******** Create New Scanners ********/
 	
 	static Scanner sc = new Scanner(System.in);
+	static Scanner inputFile;
+	static UtilityClass outfile;
 	
 	
 	
 	public static void main(String[] args) throws IOException
 	{
 		
-		/******** Create Variables ********/
+		/******** Declare Variables ********/
 		
-		String inFilename = null;	//create null string to hold infile
+		String inFilename = null;	//creates a string for to hold the infile name
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
-		int arraySize = 0;
+		int arraySize = 0;			//integer to hold the size of the arrays
+		
+		inFilename = getInFile();				//prompt and get the infile
+		arraySize = getArraySize(inFilename);	//get the number of lines from the file
+		
+		String outFilename = getOutFile();
 		
 		
 		
-		arraySize = getArraySize(inFilename);
 		
-		/******** Create a New Instance of the Utility Class ********/
 		
-		System.out.print("Please enter the path and file to which you wish to save the output: ");
-		String Out = sc.nextLine();
-		UtilityClass outfile = new UtilityClass(Out);  	
-		outfile.openFile();
 		
-		String[] itemName = new String[arraySize];
-		double[] itemPrice = new double[arraySize];
-		int[] itemQuantity = new int[arraySize];
+		String[] itemName = new String[arraySize];	//create a new array that is the size of arraySize for names
+		double[] itemPrice = new double[arraySize];	//create a new array that is the size of arraySize for price
+		double[] itemTotal = new double[arraySize];
+		int[] itemQuantity = new int[arraySize];	//create a new array that is the size of arraySize for quantity
 		
 		for (int i=0; i<arraySize; i++)
 		{
@@ -91,7 +93,7 @@ public class ShoppingCart
 		
 		i=0;
 		
-		printTitles(outfile);
+		
 		
 		for (i=0; i<arraySize; i++)
 		{
@@ -103,7 +105,6 @@ public class ShoppingCart
 			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
 			System.out.println(itemPrice[i]);
 			
-			printReceipt(itemName,itemQuantity,itemPrice,i,outfile)
 			System.out.println();
 		}
 		
@@ -116,37 +117,38 @@ public class ShoppingCart
 		}
 		
 		
-		
-		
 		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
-		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
+		itemTotal = discount.total(itemName, itemPrice, itemQuantity);
 		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);
 		
-		outfile.closeFile();
+		printTitles();
+		for (i=0; i<arraySize; i++)
+		{
+			printReceipt(itemName[i],itemQuantity[i],itemPrice[i]);
+		}
 	}
 	
-	
-	
-
-	public static String getInFile()
+	public static String getInFile() throws IOException
 	{
 		System.out.println("Please enter the name of the input file: ");
 		
-		inFilename = sc.nextLine();
-		File file = new File(inFilename);
-		Scanner inputFile = new Scanner(file);
+		String filename = sc.nextLine();
+		File file = new File(filename);
+		inputFile = new Scanner(file);
+		
+		return filename;
 	}
 	
-	public static String getOutFile()
+	/******** Create a New Instance of the Utility Class ********/
+	
+	public static String getOutFile() throws IOException
 	{
-		System.out.println("Please enter the name of the output file: ");
-		
-		inFilename = sc.nextLine();
-		File file = new File(inFilename);
-		Scanner inputFile = new Scanner(file);
+		System.out.print("Please enter the path and file to which you wish to save the output: ");
+		String Out = sc.nextLine();
+		outfile = new UtilityClass(Out);  	
+		outfile.openFile();
+		return Out;
 	}
-
-	/******** Method to Transliterate to Uppercase ********/
 	
 	public static String upperCaser(String itemName)
 	{
@@ -162,8 +164,6 @@ public class ShoppingCart
 		return itemName;
 	}
 
-	/******** Check the price field for the value zero ********/
-	
 	public static void checkZer0(double price,int i)
 	{
 		if (price == 0)
@@ -172,9 +172,6 @@ public class ShoppingCart
 			System.exit(0);
 		}
 	}
-	
-	/******** Determines the number of lines in the input file ********/
-	
 	public static int getArraySize(String inFilename) throws IOException
 	{
 		int i = 0;
@@ -202,16 +199,15 @@ public class ShoppingCart
 	
 	/******** Methods to Print the Receipt Table ********/
 	
-	public static void printTitles(UtilityClass outfile)
+	public static void printTitles()
     {
         System.out.println("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
         outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
     }
 	
-	public static void printReceipt(String itemName, int itemQuantity, double itemPrice,UtilityClass outfile)
+	public static void printReceipt(String itemName, int itemQuantity, double itemPrice)
     {
         System.out.printf("\n%-10s\t%d\t%.2f\n", itemName, itemQuantity, itemPrice);
         outfile.writeLineToFile("\n%-10s\t%d\t%.2f\n",itemName, itemQuantity, itemPrice);
     }
-	
 }
