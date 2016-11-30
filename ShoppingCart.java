@@ -45,16 +45,17 @@ public class ShoppingCart
 	
 	public static void main(String[] args) throws IOException
 	{
-		String inFilename = null;
+		
+		/******** Create Variables ********/
+		
+		String inFilename = null;	//create null string to hold infile
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
-		System.out.println("Please enter the name of the input file: ");
+		int arraySize = 0;
 		
-		inFilename = sc.nextLine();
-		File file = new File(inFilename);
-		Scanner inputFile = new Scanner(file);
 		
-		int arraySize = getArraySize(inFilename);
+		
+		arraySize = getArraySize(inFilename);
 		
 		/******** Create a New Instance of the Utility Class ********/
 		
@@ -118,6 +119,27 @@ public class ShoppingCart
 		outfile.closeFile();
 	}
 	
+	
+	
+
+	public static String getInFile()
+	{
+		System.out.println("Please enter the name of the input file: ");
+		
+		inFilename = sc.nextLine();
+		File file = new File(inFilename);
+		Scanner inputFile = new Scanner(file);
+	}
+	
+	public static String getOutFile()
+	{
+		System.out.println("Please enter the name of the output file: ");
+		
+		inFilename = sc.nextLine();
+		File file = new File(inFilename);
+		Scanner inputFile = new Scanner(file);
+	}
+
 	/******** Method to Transliterate to Uppercase ********/
 	
 	public static String upperCaser(String itemName)
