@@ -12,6 +12,12 @@ import java.text.SimpleDateFormat;
 public class Discount
 {
 	
+	/******** Import Classes ********/
+	
+	static ArrayUtil ary = new ArrayUtil();
+	
+	
+	
 	/******** Declare Flags ********/
 	
 	
@@ -311,12 +317,11 @@ public class Discount
 
 
 	/*
-	public static void total()
-
+	public static void total(String[] names)
 	{
 		if(flagLaptop = true)
 		{
-			
+			ary.getIndex(names, name)
 		}
 	}
 	*/
