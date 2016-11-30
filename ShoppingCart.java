@@ -91,6 +91,8 @@ public class ShoppingCart
 		
 		i=0;
 		
+		printTitles(outfile);
+		
 		for (i=0; i<arraySize; i++)
 		{
 			checkZer0(itemPrice[i],i);
@@ -101,6 +103,7 @@ public class ShoppingCart
 			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
 			System.out.println(itemPrice[i]);
 			
+			printReceipt(itemName,itemQuantity,itemPrice,i,outfile)
 			System.out.println();
 		}
 		
@@ -111,6 +114,9 @@ public class ShoppingCart
 			
 			discount.promo(code);
 		}
+		
+		
+		
 		
 		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
 		itemPrice = discount.total(itemName, itemPrice, itemQuantity);
@@ -194,12 +200,18 @@ public class ShoppingCart
 		return i;
 	}
 	
-	/******** Method to Print the Receipt Table ********/
+	/******** Methods to Print the Receipt Table ********/
 	
-	public static void printBmi(String[] itemName, int[] itemQuantity, double[] itemPrice,int i, UtilityClass outfile)
+	public static void printTitles(UtilityClass outfile)
     {
-        System.out.printf("\n\t%-10s\t%d\t%.2f\t\t%.2f\t\t%.2f\n", itemName[i], itemQuantity[i], itemPrice[i]);
-        outfile.writeLineToFile("\n\t%d\t%.2f\t\t%.2f\t\t%.2f\n",age[i], height[i], weight[i], bmi[i]);
+        System.out.println("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
+        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
+    }
+	
+	public static void printReceipt(String itemName, int itemQuantity, double itemPrice,UtilityClass outfile)
+    {
+        System.out.printf("\n%-10s\t%d\t%.2f\n", itemName, itemQuantity, itemPrice);
+        outfile.writeLineToFile("\n%-10s\t%d\t%.2f\n",itemName, itemQuantity, itemPrice);
     }
 	
 }
