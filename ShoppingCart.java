@@ -122,7 +122,7 @@ public class ShoppingCart
 		for (i=0; i<arraySize; i++)
 		{
 			itemSavings[i] = itemTotal[i] - itemDiscount[i];
-	
+			
 			if (itemSavings[i] > highSavings)
 			{
 				highSavings = itemSavings[i];
@@ -135,11 +135,12 @@ public class ShoppingCart
 			}
 		}
 		
-
-		printTotal(itemTotal, itemDiscount, arraySize);
-
+		double avgSavings = calcAvgSavings(itemTotal, itemDiscount, arraySize);
+		
+		printTotal(itemTotal, itemDiscount, arraySize, avgSavings);
 
 		System.out.println();
+		
 		printCalcs(itemQuantity[highIndex],itemQuantity[lowIndex],itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 	}
 	
@@ -230,6 +231,24 @@ public class ShoppingCart
 		return i;
 	}
 	
+	/******** Method to Calculate Average ********/
+	
+	public static double calcAvgSavings(double [] itemTotal, double [] itemDiscount, int arraySize)
+	{
+		Double [] itemSavings = new Double[arraySize];
+		double totalSavings=0;
+		
+		for (int i=0; i<arraySize; i++)
+		{
+			itemSavings[i] = itemTotal[i] - itemDiscount[i];
+			
+			totalSavings = totalSavings + itemSavings[i];
+		}
+		
+		double avgSavings = totalSavings / arraySize;
+		return avgSavings;
+	}
+	
 	/******** Methods to Print the Receipt Table ********/
 	
 	public static void printTitles()
@@ -245,7 +264,7 @@ public class ShoppingCart
     }
 	
 
-	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize)
+	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize, double avgSavings)
 
 	{
 		double tempTotal = 0;
@@ -271,8 +290,8 @@ public class ShoppingCart
 		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
         outfile.writeLineToFile("\n\t\t\t\t\t\t\t%d", arraySize);
 
-		System.out.printf("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
-        outfile.writeLineToFile("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+		System.out.printf("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
+        outfile.writeLineToFile("\nAverage Savings per Item:\t\t\t\t$%8.2f", avgSavings);
 
 		System.out.printf("\n\n");
         outfile.writeLineToFile("\n\n");
