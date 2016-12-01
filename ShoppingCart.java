@@ -90,6 +90,8 @@ public class ShoppingCart
 			i++;
 		}
 
+		ary.checkDuplicate(itemName);	//Calls the method checkDuplicate in ArrayUtil & checks for duplicate fields
+		
 		for (i=0; i<arraySize; i++)
 		{
 			checkZer0(itemPrice[i],i);									//Checks for a zero value in the price field
@@ -121,7 +123,7 @@ public class ShoppingCart
 		for (i=0; i<arraySize; i++)
 		{
 			itemSavings[i] = itemTotal[i] - itemDiscount[i];
-	
+			
 			if (itemSavings[i] > highSavings)
 			{
 				highSavings = itemSavings[i];
@@ -134,11 +136,12 @@ public class ShoppingCart
 			}
 		}
 		
-
-		printTotal(itemTotal, itemDiscount, arraySize);
-
+		double avgSavings = calcAvgSavings(itemTotal, itemDiscount, arraySize);
+		
+		printTotal(itemTotal, itemDiscount, arraySize, avgSavings);
 
 		System.out.println();
+		
 		printCalcs(itemQuantity[highIndex],itemQuantity[lowIndex],itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 	}
 	
@@ -229,22 +232,40 @@ public class ShoppingCart
 		return i;
 	}
 	
+	/******** Method to Calculate Average ********/
+	
+	public static double calcAvgSavings(double [] itemTotal, double [] itemDiscount, int arraySize)
+	{
+		Double [] itemSavings = new Double[arraySize];
+		double totalSavings=0;
+		
+		for (int i=0; i<arraySize; i++)
+		{
+			itemSavings[i] = itemTotal[i] - itemDiscount[i];
+			
+			totalSavings = totalSavings + itemSavings[i];
+		}
+		
+		double avgSavings = totalSavings / arraySize;
+		return avgSavings;
+	}
+	
 	/******** Methods to Print the Receipt Table ********/
 	
 	public static void printTitles()
     {
         System.out.println("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
-        outfile.writeLineToFile("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
+        outfile.writeLineToFile("\n\nITEM NAME\t\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
     }
 	
 	public static void printReceipt(String itemName, int itemQuantity, double itemTotal, double itemDiscount)
     {
         System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f", itemName, itemQuantity, itemTotal, itemDiscount);
-        outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
+        outfile.writeLineToFile("\n%-10s\t\t%d\t\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 	
 
-	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize)
+	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize, double avgSavings)
 
 	{
 		double tempTotal = 0;
@@ -260,16 +281,21 @@ public class ShoppingCart
 		}
 		
 		System.out.printf("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
-        outfile.writeLineToFile("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
+        outfile.writeLineToFile("\n\t\t\t\t\t\t$%8.2f\t\t\t\t$%8.2f", tempTotal, tempDiscount);
 		
 		tempTotal = tempTotal - tempDiscount;
 		
-
 		System.out.printf("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
         outfile.writeLineToFile("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
 		
+		System.out.printf("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
+        outfile.writeLineToFile("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
+		
 		System.out.printf("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
         outfile.writeLineToFile("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
+
+		System.out.printf("\n\n");
+        outfile.writeLineToFile("\n\n");
 	}
 	
 	/******** Method to Print the High & Low ********/
@@ -281,10 +307,14 @@ public class ShoppingCart
 		System.out.print("\n/\t\t\t\t\t\t\t\t /");
 		System.out.print("\n\\\t\t\tQUANTITY\tITEM NAME\tSAVINGS\t \\");
 		System.out.print("\n/\t\t\t\t\t\t\t\t /");
-		System.out.printf("\n\\ Highest\t\t%d\t\t%s\t%.2f\t \\", highItemQuantity, highItemName, highSavings);
-		System.out.printf("\n/ Lowest\t\t%d\t\t%s\t\t%.2f\t /", lowItemQuantity, lowItemName, lowSavings);
+		System.out.printf("\n\\ Highest\t\t%d\t\t%-10s\t%7.2f\t \\", highItemQuantity, highItemName, highSavings);
+		System.out.printf("\n/ Lowest\t\t%d\t\t%-10s\t%7.2f\t /", lowItemQuantity, lowItemName, lowSavings);
 		System.out.print("\n\\\t\t\t\t\t\t\t\t \\");
-		System.out.println("\n/________________________________________________________________/");		
+		System.out.println("\n/________________________________________________________________/");
+		
+		outfile.writeLineToFile("\n\t\tQUANTITY\tITEM NAME\tSAVINGS");
+		outfile.writeLineToFile("\n\\ Highest\t\t%d\t\t%-10s\t%7.2f\t \\", highItemQuantity, highItemName, highSavings);
+		outfile.writeLineToFile("\n/ Lowest\t\t%d\t%-10s\t\t%7.2f\t /", lowItemQuantity, lowItemName, lowSavings);
 	}
 	
 }

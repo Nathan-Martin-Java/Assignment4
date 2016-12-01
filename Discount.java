@@ -210,8 +210,6 @@ public class Discount
 			}
 			default:
 			{
-				System.out.println("Invalid Option");
-				System.out.println();
 				break;
 			}
 		}
