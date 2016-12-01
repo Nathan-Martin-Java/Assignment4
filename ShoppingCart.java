@@ -53,6 +53,7 @@ public class ShoppingCart
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
 		int arraySize = 0;			//integer to hold the size of the arrays
+		int i = 0;					//integer for while loop
 		
 		inFilename = getInFile();				//prompt and get the infile then open it
 		arraySize = getArraySize(inFilename);	//get the number of lines from the file
@@ -78,7 +79,7 @@ public class ShoppingCart
 		
 		/******** Populate Arrays ********/
 		
-		for (int i=0; i<arraySize; i++)			
+		while(i<arraySize)			
 		{
 			String line=inputFile.nextLine();
 			String[] nextfield=line.split(",",-1);
@@ -86,11 +87,9 @@ public class ShoppingCart
 			itemName[i] = nextfield[0];
 			itemPrice[i] = Double.parseDouble(nextfield[1]); 
 			itemQuantity[i] = Integer.parseInt(nextfield[2]);
+			i++;
 		}
 
-		
-		
-		int i=0;
 		for (i=0; i<arraySize; i++)
 		{
 			checkZer0(itemPrice[i],i);									//Checks for a zero value in the price field
@@ -266,16 +265,11 @@ public class ShoppingCart
 		tempTotal = tempTotal - tempDiscount;
 		
 
-		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
-        outfile.writeLineToFile("\n\t\t\t\t\t\t\t$%8.2f", tempTotal);
-		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
-        outfile.writeLineToFile("\n\t\t\t\t\t\t\t%d", arraySize);
-
 		System.out.printf("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
         outfile.writeLineToFile("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
-
-		System.out.printf("\n\n");
-        outfile.writeLineToFile("\n\n");
+		
+		System.out.printf("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
+        outfile.writeLineToFile("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
 	}
 	
 	/******** Method to Print the High & Low ********/
