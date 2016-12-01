@@ -254,13 +254,13 @@ public class ShoppingCart
 	public static void printTitles()
     {
         System.out.println("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
-        outfile.writeLineToFile("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
+        outfile.writeLineToFile("\n\nITEM NAME\t\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
     }
 	
 	public static void printReceipt(String itemName, int itemQuantity, double itemTotal, double itemDiscount)
     {
         System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f", itemName, itemQuantity, itemTotal, itemDiscount);
-        outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
+        outfile.writeLineToFile("\n%-10s\t\t%d\t\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 	
 
@@ -280,18 +280,18 @@ public class ShoppingCart
 		}
 		
 		System.out.printf("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
-        outfile.writeLineToFile("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
+        outfile.writeLineToFile("\n\t\t\t\t\t\t$%8.2f\t\t\t\t$%8.2f", tempTotal, tempDiscount);
 		
 		tempTotal = tempTotal - tempDiscount;
 		
 
 		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
-        outfile.writeLineToFile("\n\t\t\t\t\t\t\t$%8.2f", tempTotal);
+        outfile.writeLineToFile("\n Today You Saved:\t\t\t\t\t\t\t$%8.2f", tempTotal);
 		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
-        outfile.writeLineToFile("\n\t\t\t\t\t\t\t%d", arraySize);
+        outfile.writeLineToFile("\n Number of Records:\t\t\t\t\t\t\t%d", arraySize);
 
 		System.out.printf("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
-        outfile.writeLineToFile("\nAverage Savings per Item:\t\t\t\t$%8.2f", avgSavings);
+        outfile.writeLineToFile("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
 
 		System.out.printf("\n\n");
         outfile.writeLineToFile("\n\n");
@@ -309,7 +309,11 @@ public class ShoppingCart
 		System.out.printf("\n\\ Highest\t\t%d\t\t%s\t%.2f\t \\", highItemQuantity, highItemName, highSavings);
 		System.out.printf("\n/ Lowest\t\t%d\t\t%s\t\t%.2f\t /", lowItemQuantity, lowItemName, lowSavings);
 		System.out.print("\n\\\t\t\t\t\t\t\t\t \\");
-		System.out.println("\n/________________________________________________________________/");		
+		System.out.println("\n/________________________________________________________________/");
+		
+		outfile.writeLineToFile("\n\t\tQUANTITY\tITEM NAME\tSAVINGS");
+		outfile.writeLineToFile("\nHighest\t\t%d\t\t%s\t%.2f", highItemQuantity, highItemName, highSavings);
+		outfile.writeLineToFile("\nLowest\t\t%d\t\t%s\t%.2f", lowItemQuantity, lowItemName, lowSavings);
 	}
 	
 }
