@@ -28,7 +28,7 @@ public class ArrayUtil
 			
 			else if(search.equals(array[i]) && wasFound == true)	//if search = array at i and search has already been found
 			{														//print some error messages
-				System.out.printf("\n\nFATAL: Two Instances of %s Were Found Within The Array", search);
+				System.out.printf("\nFATAL: Two Instances of %s Were Found Within The Array", search);
 				System.out.printf("\nFATAL: Check Your Infile For Duplicate Names");
 				System.out.printf("\nFATAL: Program Will Now Halt");
 				System.exit(-1);									//exit the program because it does not know how to differentiate
@@ -49,7 +49,7 @@ public class ArrayUtil
 				if(array[i].equals(array[f]) && i != f)	//if the elements at the i index and f index are the same and the indexs are
 														//different then there must be a duplicate
 				{
-					System.out.printf("\n\nFATAL: Two Instances of \"%s\" Were Found Within The Array at line %d & line %d", array[i], (i+1), (f+1));
+					System.out.printf("\nFATAL: Two Instances of \"%s\" Were Found Within The Array at line %d & line %d", array[i], (i+1), (f+1));
 					System.out.printf("\nFATAL: Check Your Infile For Duplicate Names");
 					System.out.printf("\nFATAL: Program Will Now Halt");
 					System.exit(-1);

@@ -53,6 +53,7 @@ public class ShoppingCart
 		String code = "init";		//cannot be initialized to null because .equals() throws an exception
 		
 		int arraySize = 0;			//integer to hold the size of the arrays
+		int i = 0;					//integer for while loop
 		
 		inFilename = getInFile();				//prompt and get the infile then open it
 		arraySize = getArraySize(inFilename);	//get the number of lines from the file
@@ -78,7 +79,7 @@ public class ShoppingCart
 		
 		/******** Populate Arrays ********/
 		
-		for (int i=0; i<arraySize; i++)			
+		while(i<arraySize)			
 		{
 			String line=inputFile.nextLine();
 			String[] nextfield=line.split(",",-1);
@@ -86,11 +87,11 @@ public class ShoppingCart
 			itemName[i] = nextfield[0];
 			itemPrice[i] = Double.parseDouble(nextfield[1]); 
 			itemQuantity[i] = Integer.parseInt(nextfield[2]);
+			i++;
 		}
 
+		ary.checkDuplicate(itemName);	//Calls the method checkDuplicate in ArrayUtil & checks for duplicate fields
 		
-		
-		int i=0;
 		for (i=0; i<arraySize; i++)
 		{
 			checkZer0(itemPrice[i],i);									//Checks for a zero value in the price field
@@ -284,14 +285,14 @@ public class ShoppingCart
 		
 		tempTotal = tempTotal - tempDiscount;
 		
-
-		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
-        outfile.writeLineToFile("\n Today You Saved:\t\t\t\t\t\t\t$%8.2f", tempTotal);
-		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
-        outfile.writeLineToFile("\n Number of Records:\t\t\t\t\t\t\t%d", arraySize);
-
+		System.out.printf("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+        outfile.writeLineToFile("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+		
 		System.out.printf("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
         outfile.writeLineToFile("\n Average Savings per Item:\t\t\t\t$%8.2f", avgSavings);
+		
+		System.out.printf("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
+        outfile.writeLineToFile("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
 
 		System.out.printf("\n\n");
         outfile.writeLineToFile("\n\n");
@@ -306,14 +307,14 @@ public class ShoppingCart
 		System.out.print("\n/\t\t\t\t\t\t\t\t /");
 		System.out.print("\n\\\t\t\tQUANTITY\tITEM NAME\tSAVINGS\t \\");
 		System.out.print("\n/\t\t\t\t\t\t\t\t /");
-		System.out.printf("\n\\ Highest\t\t%d\t\t%s\t%.2f\t \\", highItemQuantity, highItemName, highSavings);
-		System.out.printf("\n/ Lowest\t\t%d\t\t%s\t\t%.2f\t /", lowItemQuantity, lowItemName, lowSavings);
+		System.out.printf("\n\\ Highest\t\t%d\t\t%-10s\t%7.2f\t \\", highItemQuantity, highItemName, highSavings);
+		System.out.printf("\n/ Lowest\t\t%d\t\t%-10s\t%7.2f\t /", lowItemQuantity, lowItemName, lowSavings);
 		System.out.print("\n\\\t\t\t\t\t\t\t\t \\");
 		System.out.println("\n/________________________________________________________________/");
 		
 		outfile.writeLineToFile("\n\t\tQUANTITY\tITEM NAME\tSAVINGS");
-		outfile.writeLineToFile("\nHighest\t\t%d\t\t%s\t%.2f", highItemQuantity, highItemName, highSavings);
-		outfile.writeLineToFile("\nLowest\t\t%d\t\t%s\t%.2f", lowItemQuantity, lowItemName, lowSavings);
+		outfile.writeLineToFile("\n\\ Highest\t\t%d\t\t%-10s\t%7.2f\t \\", highItemQuantity, highItemName, highSavings);
+		outfile.writeLineToFile("\n/ Lowest\t\t%d\t%-10s\t\t%7.2f\t /", lowItemQuantity, lowItemName, lowSavings);
 	}
 	
 }
