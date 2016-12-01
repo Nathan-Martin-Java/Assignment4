@@ -201,6 +201,7 @@ public class ShoppingCart
 		if (price == 0)
 		{
 			System.out.printf("\nError: the price in line %d is zero.",i+1);
+			outfile.writeLineToFile("\nError: the price in line %d is zero.",i+1);
 			System.exit(0);
 		}
 	}

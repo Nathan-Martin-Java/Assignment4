@@ -1,0 +1,2 @@
+
+Error: the price in line 2 is zero.

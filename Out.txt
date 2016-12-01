@@ -283,3 +283,26 @@ Total..........................................................
 		QUANTITY	ITEM NAME	SAVINGS
 Highest		32		Desktop Comp	1577.28
 Lowest		9		Router	0.00
+
+ITEM NAME		ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    		15			$10104.00		$ 9598.80
+Keyboard  		40			$ 1824.00		$ 1231.20
+Monitor   		30			$ 6913.50		$ 6222.15
+Router    		9			$ 2797.29		$ 2797.29
+Desktop Comp		32			$15772.80		$14195.52
+Switch    		16			$ 2695.36		$ 2560.59
+Ethernet Cable		18			$ 1627.20		$ 1545.84
+Mouse     		38			$  524.40		$  353.97
+Wireless Router		9			$  725.31		$  725.31
+
+Total..........................................................
+						$42983.86				$39230.67
+
+ Today You Saved:					$ 3753.19
+ Average Savings per Item:				$  417.02
+ Number of Unique Items Bought:				        9
+
+
+		QUANTITY	ITEM NAME	SAVINGS
+\ Highest		32		Desktop Comp	1577.28	 \
+/ Lowest		9	Router    		   0.00	 /
