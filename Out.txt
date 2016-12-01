@@ -15,3 +15,130 @@ Wireless Router	9		$  725.31		$  725.31
 							$ 3224.80
 							9
 
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+ SubTotal.........................................................
+				$42983.86		$39759.06
+							$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+ SubTotal.........................................................
+				$42983.86		$39759.06
+
+ Today You Saved:					$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+
+ SubTotal.........................................................
+				$42983.86		$39759.06
+
+ Today You Saved:					$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+
+SubTotal..........................................................
+				$42983.86		$39759.06
+
+ Today You Saved:					$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+
+SubTotal..........................................................
+				$42983.86		$39759.06
+
+ Today You Saved:					$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+
+SubTotal..........................................................
+				$42983.86		$39759.06
+							$ 3224.80
+							9
+
+ Today You Saved:					$ 3224.80
+
+
+
+ITEM NAME	ITEM QUANTITY	ORIGINAL ITEM TOTALS	DISCOUNTED ITEM TOTALS
+Laptop    	15		$10104.00		$ 9598.80
+Keyboard  	40		$ 1824.00		$ 1641.60
+Monitor   	30		$ 6913.50		$ 6222.15
+Router    	9		$ 2797.29		$ 2797.29
+Desktop Comp	32		$15772.80		$14195.52
+Switch    	16		$ 2695.36		$ 2560.59
+Ethernet Cable	18		$ 1627.20		$ 1545.84
+Mouse     	38		$  524.40		$  471.96
+Wireless Router	9		$  725.31		$  725.31
+
+Total..........................................................
+				$42983.86		$39759.06
+							$ 3224.80
+							9
+
+ Today You Saved:					$ 3224.80
+

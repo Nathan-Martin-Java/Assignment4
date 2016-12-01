@@ -135,7 +135,10 @@ public class ShoppingCart
 			}
 		}
 		
+
 		printTotal(itemTotal, itemDiscount, arraySize);
+
+
 		System.out.println();
 		printCalcs(itemQuantity[highIndex],itemQuantity[lowIndex],itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 	}
@@ -241,13 +244,15 @@ public class ShoppingCart
         outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 	
+
 	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize)
+
 	{
 		double tempTotal = 0;
 		double tempDiscount = 0;
 		
-		System.out.printf("\n Total............................................................");
-        outfile.writeLineToFile("\n Total............................................................");
+		System.out.printf("\n\nTotal..........................................................");
+        outfile.writeLineToFile("\n\nTotal..........................................................");
 		
 		for(int i = 0; i < itemTotal.length; i++)
 		{
@@ -260,10 +265,15 @@ public class ShoppingCart
 		
 		tempTotal = tempTotal - tempDiscount;
 		
+
 		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
         outfile.writeLineToFile("\n\t\t\t\t\t\t\t$%8.2f", tempTotal);
 		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
         outfile.writeLineToFile("\n\t\t\t\t\t\t\t%d", arraySize);
+
+		System.out.printf("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+        outfile.writeLineToFile("\n\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+
 		System.out.printf("\n\n");
         outfile.writeLineToFile("\n\n");
 	}
