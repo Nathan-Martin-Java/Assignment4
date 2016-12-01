@@ -137,6 +137,7 @@ public class ShoppingCart
 			}
 		}
 		
+		printTotal(itemTotal, itemDiscount);
 		System.out.println();
 		printCalcs(itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 		
@@ -242,6 +243,31 @@ public class ShoppingCart
         System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f", itemName, itemQuantity, itemTotal, itemDiscount);
         outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
+	
+	public static void printTotal(double[] itemTotal, double[] itemDiscount)
+	{
+		double tempTotal = 0;
+		double tempDiscount = 0;
+		
+		System.out.printf("\n Total............................................................");
+        outfile.writeLineToFile("\n Total............................................................");
+		
+		for(int i = 0; i < itemTotal.length; i++)
+		{
+			tempTotal = tempTotal + itemTotal[i];
+			tempDiscount = tempDiscount + itemDiscount[i];
+		}
+		
+		System.out.printf("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
+        outfile.writeLineToFile("\n\t\t\t\t$%8.2f\t\t$%8.2f", tempTotal, tempDiscount);
+		
+		tempTotal = tempTotal - tempDiscount;
+		
+		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
+        outfile.writeLineToFile("\n\t\t\t\t\t\t\t$%8.2f", tempTotal);
+		System.out.printf("\n\n");
+        outfile.writeLineToFile("\n\n");
+	}
 	
 	/******** Methods to Print the Receipt Table ********/
 	
