@@ -44,7 +44,6 @@ public class ShoppingCart
 	static UtilityClass outfile;
 	
 	
-	
 	public static void main(String[] args) throws IOException
 	{
 		
@@ -59,8 +58,6 @@ public class ShoppingCart
 		arraySize = getArraySize(inFilename);	//get the number of lines from the file
 		
 		String outFilename = getOutFile();		//prompt and get the outfile then open it
-		
-		
 		
 		/******** Create Arrays ********/
 		
@@ -81,7 +78,7 @@ public class ShoppingCart
 		
 		/******** Populate Arrays ********/
 		
-		for (int i=0; i<arraySize; i++)			// NOTE: I'm concerned that we have to change this to a while loop based on the assignment rubric specifications
+		for (int i=0; i<arraySize; i++)			
 		{
 			String line=inputFile.nextLine();
 			String[] nextfield=line.split(",",-1);
@@ -89,7 +86,8 @@ public class ShoppingCart
 			itemName[i] = nextfield[0];
 			itemPrice[i] = Double.parseDouble(nextfield[1]); 
 			itemQuantity[i] = Integer.parseInt(nextfield[2]);
-		}	
+		}
+
 		
 		
 		int i=0;
@@ -137,10 +135,9 @@ public class ShoppingCart
 			}
 		}
 		
-		printTotal(itemTotal, itemDiscount);
+		printTotal(itemTotal, itemDiscount, arraySize);
 		System.out.println();
-		printCalcs(itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
-		
+		printCalcs(itemQuantity[highIndex],itemQuantity[lowIndex],itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 	}
 	
 	/******** Method To Get Infile & Create Scanner ********/
@@ -244,7 +241,7 @@ public class ShoppingCart
         outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 	
-	public static void printTotal(double[] itemTotal, double[] itemDiscount)
+	public static void printTotal(double[] itemTotal, double[] itemDiscount, int arraySize)
 	{
 		double tempTotal = 0;
 		double tempDiscount = 0;
@@ -265,18 +262,25 @@ public class ShoppingCart
 		
 		System.out.printf("\n Today You Saved:\t\t\t\t\t$%8.2f", tempTotal);
         outfile.writeLineToFile("\n\t\t\t\t\t\t\t$%8.2f", tempTotal);
+		System.out.printf("\n Number of Records:\t\t\t\t\t  %d", arraySize);
+        outfile.writeLineToFile("\n\t\t\t\t\t\t\t%d", arraySize);
 		System.out.printf("\n\n");
         outfile.writeLineToFile("\n\n");
 	}
 	
 	/******** Method to Print the High & Low ********/
 	
-	public static void printCalcs(String highString, String lowString, double highSavings, double lowSavings)
+	public static void printCalcs(int highItemQuantity, int lowItemQuantity, String highItemName, String lowItemName, double highSavings, double lowSavings)
 	{
-		System.out.println(highString);
-		System.out.println(lowString);
-		System.out.println(highSavings);
-		System.out.println(lowSavings);
+		System.out.println("\n/~~~~~~~~~~~~~~~~~~ SAVINGS BREAKDOWN BY ITEM ~~~~~~~~~~~~~~~~~~~/");
+		System.out.print("\\\t\t\t\t\t\t\t\t \\");
+		System.out.print("\n/\t\t\t\t\t\t\t\t /");
+		System.out.print("\n\\\t\t\tQUANTITY\tITEM NAME\tSAVINGS\t \\");
+		System.out.print("\n/\t\t\t\t\t\t\t\t /");
+		System.out.printf("\n\\ Highest\t\t%d\t\t%s\t%.2f\t \\", highItemQuantity, highItemName, highSavings);
+		System.out.printf("\n/ Lowest\t\t%d\t\t%s\t\t%.2f\t /", lowItemQuantity, lowItemName, lowSavings);
+		System.out.print("\n\\\t\t\t\t\t\t\t\t \\");
+		System.out.println("\n/________________________________________________________________/");		
 	}
 	
 }
