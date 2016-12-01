@@ -71,6 +71,8 @@ public class ShoppingCart
 		double[] itemDiscount = new double[arraySize];	//create a new array that is the size of arraySize for discount
 		int[] itemQuantity = new int[arraySize];		//create a new array that is the size of arraySize for quantity
 		
+		/******** Populate Arrays ********/
+		
 		for (int i=0; i<arraySize; i++)
 		{
 			String line=inputFile.nextLine();
@@ -79,42 +81,22 @@ public class ShoppingCart
 			itemName[i] = nextfield[0];
 			itemPrice[i] = Double.parseDouble(nextfield[1]); 
 			itemQuantity[i] = Integer.parseInt(nextfield[2]);
-			itemTotal[i] = getTotal(itemPrice[i], itemQuantity[i]);
-			
-			System.out.println("Total is " + itemTotal[i]);
-		
-		}
-		
-		int i = 0;
-		
-		while(i < arraySize)
-		{
-			System.out.println(itemName[i]);
-			System.out.println(itemPrice[i]);
-			System.out.println(itemQuantity[i]);
-			System.out.println();
-		 	i++;
-		}
-		
-		i=0;
+		}	
 		
 		
-		
+		int i=0;
 		for (i=0; i<arraySize; i++)
 		{
-			checkZer0(itemPrice[i],i);
+			checkZer0(itemPrice[i],i);									//Checks for a zero value in the price field
 			
-			itemName[i] = upperCaser(itemName[i]);
-			System.out.println(itemName[i]);
+			itemName[i] = upperCaser(itemName[i]);						//Transliterates the input file to Title Case
 			
-			itemPrice[i] = discount.bulk(itemQuantity[i],itemPrice[i]);
-			System.out.println(itemPrice[i]);
+			itemBulk[i] = discount.bulk(itemQuantity[i],itemPrice[i]);	//Calculate the bulk discount price of an item
 			
-			System.out.println();
-			itemBulk[i] = getTotal(itemPrice[i], itemQuantity[i]);
+			itemTotal[i] = getTotal(itemPrice[i], itemQuantity[i]);
 		}
 		
-		while(!code.equals("")) 
+		while(!code.equals(""))		//Gets the promo codes from the user
 		{
 			System.out.println("Please enter a promo code or press enter to exit:");
 			code = sc.nextLine();
@@ -122,15 +104,13 @@ public class ShoppingCart
 			discount.promo(code);
 		}
 		
-		
-		System.out.println("The Price of Laptops Before Discounts is " + (itemPrice[0]*itemQuantity[0]));
-		itemTotal = discount.total(itemName, itemPrice, itemQuantity);
-		System.out.println("The Price of Laptops After Discounts is " + itemPrice[0]);
+		itemDiscount = discount.total(itemName, itemBulk, itemQuantity);	//Applies the promo codes to the appropriate items
 		
 		printTitles();
+		
 		for (i=0; i<arraySize; i++)
 		{
-			printReceipt(itemName[i],itemQuantity[i],itemPrice[i]);
+			printReceipt(itemName[i],itemQuantity[i],itemTotal[i],itemDiscount[i]);
 		}
 	}
 	
@@ -214,13 +194,13 @@ public class ShoppingCart
 	
 	public static void printTitles()
     {
-        System.out.println("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
-        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tITEM PRICE\n");
+        System.out.println("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS\n");
+        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS\n");
     }
 	
-	public static void printReceipt(String itemName, int itemQuantity, double itemPrice)
+	public static void printReceipt(String itemName, int itemQuantity, double itemTotal, double itemDiscount)
     {
-        System.out.printf("\n%-10s\t%d\t%.2f\n", itemName, itemQuantity, itemPrice);
-        outfile.writeLineToFile("\n%-10s\t%d\t%.2f\n",itemName, itemQuantity, itemPrice);
+        System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n", itemName, itemQuantity, itemTotal, itemDiscount);
+        outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 }

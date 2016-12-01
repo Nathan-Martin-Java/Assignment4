@@ -449,7 +449,7 @@ public class Discount
 
 		if(flagCheckOffice == true)
 		{
-			index = ary.getIndex(names, "Desktop Computer");
+			index = ary.getIndex(names, "Desktop Comp");
 			if (index != -1)
 			{
 				totalPrice[index] = (price[index] * 0.90) * quantity[index];

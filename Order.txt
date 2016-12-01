@@ -2,7 +2,7 @@ laptop,673.60,15
 keyboard,45.60,40
 monitor,230.45,30
 router,310.81,9
-desktop computer,492.90,32
+desktop comp,492.90,32
 switch,168.46,16
 ethernet cable,90.40,18
 mouse,13.80,38
