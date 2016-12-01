@@ -234,8 +234,8 @@ public class ShoppingCart
 	
 	public static void printTitles()
     {
-        System.out.println("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
-        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
+        System.out.println("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
+        outfile.writeLineToFile("\n\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
     }
 	
 	public static void printReceipt(String itemName, int itemQuantity, double itemTotal, double itemDiscount)
@@ -269,7 +269,7 @@ public class ShoppingCart
         outfile.writeLineToFile("\n\n");
 	}
 	
-	/******** Methods to Print the Receipt Table ********/
+	/******** Method to Print the High & Low ********/
 	
 	public static void printCalcs(String highString, String lowString, double highSavings, double lowSavings)
 	{
