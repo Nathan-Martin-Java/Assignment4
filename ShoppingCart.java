@@ -66,14 +66,22 @@ public class ShoppingCart
 		
 		String[] itemName = new String[arraySize];		//create a new array that is the size of arraySize for names
 		double[] itemPrice = new double[arraySize];		//create a new array that is the size of arraySize for price
-		double[] itemTotal = new double[arraySize];		//create a new array that is the size of arraySize for total
+		double[] itemTotal = new double[arraySize];		//create a new array that is the size of arraySize for item totals before discounts
 		double[] itemBulk = new double[arraySize];		//create a new array that is the size of arraySize for bulk discount
-		double[] itemDiscount = new double[arraySize];	//create a new array that is the size of arraySize for discount
+		double[] itemDiscount = new double[arraySize];	//create a new array that is the size of arraySize for item totals after all discounts
 		int[] itemQuantity = new int[arraySize];		//create a new array that is the size of arraySize for quantity
+		double[] itemSavings = new double[arraySize];	//create a new array that is the size of arraySize for savings per item total
+		
+		/******** Create Variables for Calculations ********/
+		
+		double highSavings = 0;
+		double lowSavings = 100000;
+		int lowIndex = 0;
+		int highIndex = 0;
 		
 		/******** Populate Arrays ********/
 		
-		for (int i=0; i<arraySize; i++)
+		for (int i=0; i<arraySize; i++)			// NOTE: I'm concerned that we have to change this to a while loop based on the assignment rubric specifications
 		{
 			String line=inputFile.nextLine();
 			String[] nextfield=line.split(",",-1);
@@ -89,7 +97,7 @@ public class ShoppingCart
 		{
 			checkZer0(itemPrice[i],i);									//Checks for a zero value in the price field
 			
-			itemName[i] = upperCaser(itemName[i]);						//Transliterates the input file to Title Case
+			itemName[i] = upperCaser(itemName[i]);						//Transliterates the input file String column to Title Case
 			
 			itemBulk[i] = discount.bulk(itemQuantity[i],itemPrice[i]);	//Calculate the bulk discount price of an item
 			
@@ -106,12 +114,31 @@ public class ShoppingCart
 		
 		itemDiscount = discount.total(itemName, itemBulk, itemQuantity);	//Applies the promo codes to the appropriate items
 		
-		printTitles();
+		printTitles();					//Display Order Table - Colomun Names
+		
+		for (i=0; i<arraySize; i++)		//Display Order Table - Fields
+		{
+			printReceipt(itemName[i],itemQuantity[i],itemTotal[i],itemDiscount[i]);	
+		}
 		
 		for (i=0; i<arraySize; i++)
 		{
-			printReceipt(itemName[i],itemQuantity[i],itemTotal[i],itemDiscount[i]);
+			itemSavings[i] = itemTotal[i] - itemDiscount[i];
+	
+			if (itemSavings[i] > highSavings)
+			{
+				highSavings = itemSavings[i];
+				highIndex = i;
+			}
+			if (itemSavings[i] < lowSavings)
+			{
+				lowSavings = itemSavings[i];
+				lowIndex = i;
+			}
 		}
+		
+		printCalcs(itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
+		
 	}
 	
 	public static String getInFile() throws IOException
@@ -203,4 +230,15 @@ public class ShoppingCart
         System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n", itemName, itemQuantity, itemTotal, itemDiscount);
         outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n",itemName, itemQuantity, itemTotal,itemDiscount);
     }
+	
+	/******** Methods to Print the Receipt Table ********/
+	
+	public static void printCalcs(String highString, String lowString, double highSavings, double lowSavings)
+	{
+		System.out.println(highString);
+		System.out.println(lowString);
+		System.out.println(highSavings);
+		System.out.println(lowSavings);
+	}
+	
 }
