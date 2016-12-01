@@ -90,7 +90,7 @@ public class Discount
 				
 			case "F3qytr":
 			{
-				if (flagCheckLaptop == false)
+				if (flagCheckLaptop == false)				//checks if the code has been entered already
 				{
 					System.out.println("Laptop Code!");
 					System.out.println("15% off laptops");
@@ -111,7 +111,7 @@ public class Discount
 			
 			case "Jxn4ns":
 			{
-				if (flagCheckComp == false)
+				if (flagCheckComp == false)					//checks if the code has been entered already
 				{
 					System.out.println("Computer Peripherals Code!");
 					System.out.println("25% off mice & keyboards");
@@ -131,7 +131,7 @@ public class Discount
 			
 			case "udXyj6":
 			{
-				if (flagCheckNetwork == false)
+				if (flagCheckNetwork == false)				//checks if the code has been entered already
 				{
 					System.out.println("Networking Code!");
 					System.out.println("20% off switches & routers");
@@ -151,7 +151,7 @@ public class Discount
 			
 			case "Gc47wX":
 			{
-				if (flagCheckCable == false)
+				if (flagCheckCable == false)				//checks if the code has been entered already
 				{
 					System.out.println("Ethernet Cable Code!");
 					System.out.println("Half Off Ethernet Cables!");
@@ -171,7 +171,7 @@ public class Discount
 			
 			case "kc42Qj":
 			{
-				if (flagCheckOffice == false)
+				if (flagCheckOffice == false)				//checks if the code has been entered already
 				{
 					System.out.println("Home Office Starter Pack!");
 					System.out.println("10% off Desktops, 30% off mice, keyboards & monitors!");
@@ -191,7 +191,7 @@ public class Discount
 			
 			case "DQB6HS":
 			{
-				if (flagCheckHomeNet == false)
+				if (flagCheckHomeNet == false)				//checks if the code has been entered already
 				{
 					System.out.println("Home Networking Starter Pack!");
 					System.out.println("15% off Wireless Access Points & Ethernet Cables!");
@@ -231,7 +231,7 @@ public class Discount
 				{
 					if(month==3 || month==4 || month==5)
 					{
-						if(flagCheckSeason == false)
+						if(flagCheckSeason == false)				//checks if the code has been entered already
 						{
 							System.out.println("Spring 15% off");
 							System.out.println();
@@ -257,7 +257,7 @@ public class Discount
 				{
 					if(month==6 || month==7 || month==8)
 					{
-						if(flagCheckSeason == false)
+						if(flagCheckSeason == false)				//checks if the code has been entered already
 						{
 							System.out.println("Summer 15% off");
 							System.out.println();
@@ -283,7 +283,7 @@ public class Discount
 				{
 					if(month==9 || month==10 || month==11)
 					{
-						if(flagCheckSeason == false)
+						if(flagCheckSeason == false)				//checks if the code has been entered already
 						{
 							System.out.println("Fall 15% off");
 							System.out.println();
@@ -310,7 +310,7 @@ public class Discount
 				{
 					if(month==12 || month==1 || month==2)
 					{
-						if(flagCheckSeason == false)
+						if(flagCheckSeason == false)				//checks if the code has been entered already
 						{
 							System.out.println("Winter 15% off");
 							System.out.println();
@@ -336,7 +336,7 @@ public class Discount
 				
 				case "FAMILY":
 				{
-					if (flagCheckFamily == false)
+					if (flagCheckFamily == false)	//checks if the code has been entered already
 					{
 						System.out.println("You Entered The Friends and Family Discount");
 						System.out.println();

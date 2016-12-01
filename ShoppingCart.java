@@ -137,13 +137,16 @@ public class ShoppingCart
 			}
 		}
 		
+		System.out.println();
 		printCalcs(itemName[highIndex],itemName[lowIndex],highSavings,lowSavings);
 		
 	}
 	
+	/******** Method To Get Infile & Create Scanner ********/
+	
 	public static String getInFile() throws IOException
 	{
-		System.out.println("Please enter the name of the input file: ");
+		System.out.println("Please enter the path and filename of the input file: ");
 		
 		String filename = sc.nextLine();
 		File file = new File(filename);
@@ -152,16 +155,18 @@ public class ShoppingCart
 		return filename;
 	}
 	
-	/******** Create a New Instance of the Utility Class ********/
+	/******** Method To Get Outfile & Create UtilityClass ********/
 	
 	public static String getOutFile() throws IOException
 	{
-		System.out.print("Please enter the path and file to which you wish to save the output: ");
+		System.out.print("Please enter the path and filename to which you wish to save the output: ");
 		String Out = sc.nextLine();
 		outfile = new UtilityClass(Out);  	
 		outfile.openFile();
 		return Out;
 	}
+	
+	/******** Method For Getting Price x Quantity ********/
 	
 	public static double getTotal(double itemPrice, int itemQuantity)
 	{
@@ -169,6 +174,8 @@ public class ShoppingCart
 		
 		return itemTotal;
 	}
+	
+	/******** Method That Converts The First Letter To Uppercase ********/
 	
 	public static String upperCaser(String itemName)
 	{
@@ -183,7 +190,9 @@ public class ShoppingCart
 		}
 		return itemName;
 	}
-
+	
+	/******** Method That Checks If The Price Is Zero ********/
+	
 	public static void checkZer0(double price,int i)
 	{
 		if (price == 0)
@@ -192,6 +201,9 @@ public class ShoppingCart
 			System.exit(0);
 		}
 	}
+	
+	/******** Method That Gets The Number Of Lines In The Document ********/
+	
 	public static int getArraySize(String inFilename) throws IOException
 	{
 		int i = 0;
@@ -221,14 +233,14 @@ public class ShoppingCart
 	
 	public static void printTitles()
     {
-        System.out.println("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS\n");
-        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS\n");
+        System.out.println("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
+        outfile.writeLineToFile("\nITEM NAME\tITEM QUANTITY\tORIGINAL ITEM TOTALS\tDISCOUNTED ITEM TOTALS");
     }
 	
 	public static void printReceipt(String itemName, int itemQuantity, double itemTotal, double itemDiscount)
     {
-        System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n", itemName, itemQuantity, itemTotal, itemDiscount);
-        outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f\n",itemName, itemQuantity, itemTotal,itemDiscount);
+        System.out.printf("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f", itemName, itemQuantity, itemTotal, itemDiscount);
+        outfile.writeLineToFile("\n%-10s\t%d\t\t$%8.2f\t\t$%8.2f",itemName, itemQuantity, itemTotal,itemDiscount);
     }
 	
 	/******** Methods to Print the Receipt Table ********/
