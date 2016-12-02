@@ -37,6 +37,9 @@ public class ShoppingCart
 	
 	
 	
+	/******** Declare Constant ********/
+	static final int zhero = 0;
+	
 	/******** Create New Scanners ********/
 	
 	static Scanner sc = new Scanner(System.in);
@@ -198,7 +201,7 @@ public class ShoppingCart
 	
 	public static void checkZer0(double price,int i)
 	{
-		if (price == 0)
+		if (price == zhero)
 		{
 			System.out.printf("\nError: the price in line %d is zero.",i+1);
 			outfile.writeLineToFile("\nError: the price in line %d is zero.",i+1);
@@ -272,8 +275,8 @@ public class ShoppingCart
 		double tempTotal = 0;
 		double tempDiscount = 0;
 		
-		System.out.printf("\n\nTotal..........................................................");
-        outfile.writeLineToFile("\n\nTotal..........................................................");
+		System.out.printf("\n\nTotal............................................................");
+        outfile.writeLineToFile("\n\nTotal............................................................");
 		
 		for(int i = 0; i < itemTotal.length; i++)
 		{
@@ -295,8 +298,6 @@ public class ShoppingCart
 		System.out.printf("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
         outfile.writeLineToFile("\n Number of Unique Items Bought:\t\t\t\t%9d", arraySize);
 
-		System.out.printf("\n\n");
-        outfile.writeLineToFile("\n\n");
 	}
 	
 	/******** Method to Print the High & Low ********/
