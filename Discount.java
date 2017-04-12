@@ -14,6 +14,7 @@ public class Discount
 	
 	/******** Declare Flags ********/
 	
+	private static Boolean flagSeason = false;
 	private static Boolean flagFamily = false;
 	
 	
@@ -146,10 +147,21 @@ public class Discount
 				{
 					if(month==3 || month==4 || month==5)
 					{
-						System.out.println("Spring 15% off");
-						System.out.println();
-					}
+						if(flagSeason == false)
+						{
+							System.out.println("Spring 15% off");
+							System.out.println();
+							flagSeason = true;
+							break;
+						}
 					
+						else
+						{
+							System.out.println("You have already entered the season discount.");
+							System.out.println();
+							break;
+						}
+					}
 					else
 					{
 						System.out.println("Invalid Option");
