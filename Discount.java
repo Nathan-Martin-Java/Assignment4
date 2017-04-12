@@ -143,7 +143,7 @@ public class Discount
 					break;
 				}
 				
-				case "SPRG15":
+				case "SPRING15":
 				{
 					if(month==3 || month==4 || month==5)
 					{
@@ -170,7 +170,7 @@ public class Discount
 					break;
 				}
 				
-				case "SMMR15":
+				case "SUMMER15":
 				{
 					if(month==6 || month==7 || month==8)
 					{
@@ -202,7 +202,7 @@ public class Discount
 					break;
 				}
 				
-				case "WNTR15":
+				case "WINTER15":
 				{
 					if(month==12 || month==1 || month==2)
 					{
